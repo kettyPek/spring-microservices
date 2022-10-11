@@ -1,0 +1,30 @@
+package com.rest.webservices.socialmediademo.models;
+
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.function.Predicate;
+
+public class Gen {
+
+	public static void main(String[] args) {
+
+		List<User> users = List.of( new User(1,"ketty",LocalDate.of(1996,2,5)),
+				new User(2,"dan",LocalDate.of(1994,4,6)));
+		
+		Predicate<User> selector = u -> u.getName().equals("ketty");
+		List<User> kettys = filter(users, selector);
+		
+		kettys.forEach(System.out::println);
+	}
+
+	public static <T> List<T> filter(List<T> objects, Predicate<T> selector) {
+		final var bySelector = new ArrayList<T>();
+		objects.forEach(object -> {
+			if (selector.test(object))
+				bySelector.add(object);
+		});
+
+		return bySelector;
+	}
+}

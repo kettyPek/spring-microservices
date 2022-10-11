@@ -1,0 +1,5 @@
+package com.rest.webservices.socialmediademo.models;
+
+public class User {
+
+}

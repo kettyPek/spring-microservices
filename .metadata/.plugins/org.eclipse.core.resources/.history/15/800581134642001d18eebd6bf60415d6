@@ -1,0 +1,87 @@
+package com.rest.webservices.socialmediademo.models;
+
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.function.Predicate;
+import java.util.stream.IntStream;
+
+public class Gen {
+
+	public static void main(String[] args) {
+
+//		List<User> users = List.of( new User(1,"ketty",LocalDate.of(1996,2,5)),
+//				new User(2,"dan",LocalDate.of(1994,4,6)));
+//		
+//		Predicate<User> selector = u -> u.getName().equals("ketty");
+//		List<User> kettys = filter(users, selector);
+//		
+//		kettys.forEach(System.out::println);
+		
+		
+		//Question 1
+		int[] nums = new int[] {1,2,6,3,4,6,2};
+		int firstNoneUniqueIndex = noneUniqueIndex(nums);
+		System.out.println("first none uniquw index: " + firstNoneUniqueIndex);
+		
+		
+		//Question 2
+		String s = "abcda";
+		String t = "abda";
+		String c = "adb";
+		
+		System.out.println("Question 2 : " +  presentInTSandNotW(t,s,c));
+		
+		
+	}
+	
+	public static int noneUniqueIndex(int[] arr) {
+		Map<Integer,Integer> indexs = new HashMap<Integer,Integer>();
+		
+		for(int i=0; i<arr.length; i++) {
+			if(indexs.containsKey(arr[i]))
+				return indexs.get(arr[i]);
+			indexs.put(arr[i], i);
+		}
+		
+		return -1;
+	}
+	
+	
+	public static long presentInTSandNotW(String t, String s, String w) {
+		
+		String shortest = t;
+		String longest = s;
+		
+		if(t.length() > s.length()) {
+			shortest = s;
+			longest = t;
+		}
+
+		
+		Set<Integer> shortestChars = new HashSet<Integer>();
+		Set<Integer> longestChars = new HashSet<Integer>();
+		Set<Integer> wSet = new HashSet<Integer>();
+		
+		shortest.chars().forEach(c -> shortestChars.add(c));
+		longest.chars().forEach(c -> longestChars.add(c));
+		w.chars().forEach(c -> wSet.add(c));
+		
+		return  shortestChars.stream().filter(sh -> longestChars.contains(sh) && !wSet.contains(sh)).count();
+		
+	}
+
+	public static <T> List<T> filter(List<T> objects, Predicate<T> selector) {
+		final var bySelector = new ArrayList<T>();
+		objects.forEach(object -> {
+			if (selector.test(object))
+				bySelector.add(object);
+		});
+
+		return bySelector;
+	}
+}
