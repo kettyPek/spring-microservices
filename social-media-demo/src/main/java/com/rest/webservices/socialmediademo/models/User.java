@@ -2,8 +2,9 @@ package com.rest.webservices.socialmediademo.models;
 
 import java.time.LocalDate;
 
-import jakarta.validation.constraints.Past;
-import jakarta.validation.constraints.Size;
+import javax.validation.constraints.Past;
+import javax.validation.constraints.Size;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

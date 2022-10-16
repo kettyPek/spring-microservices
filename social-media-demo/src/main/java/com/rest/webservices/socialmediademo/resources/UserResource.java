@@ -3,6 +3,8 @@ package com.rest.webservices.socialmediademo.resources;
 import java.net.URI;
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -18,7 +20,6 @@ import com.rest.webservices.socialmediademo.dao.UserDaoService;
 import com.rest.webservices.socialmediademo.exceptions.UserNotFoundException;
 import com.rest.webservices.socialmediademo.models.User;
 
-import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/users")
