@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.rest.webservices.socialmediademo.dao.UserDaoService;
+import com.rest.webservices.socialmediademo.exceptions.UserNotFoundException;
 import com.rest.webservices.socialmediademo.models.User;
 
 @RestController
@@ -30,7 +31,12 @@ public class UserResource {
 
 	@GetMapping("/{id}")
 	public User getUser(@PathVariable int id) {
-		return userDao.findById(id);
+		User user = userDao.findById(id);
+		
+		if(user == null)
+			throw new UserNotFoundException("id:"+id);
+		
+		return user;
 	}
 
 	@PostMapping()
