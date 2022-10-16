@@ -18,6 +18,8 @@ import com.rest.webservices.socialmediademo.dao.UserDaoService;
 import com.rest.webservices.socialmediademo.exceptions.UserNotFoundException;
 import com.rest.webservices.socialmediademo.models.User;
 
+import jakarta.validation.Valid;
+
 @RestController
 @RequestMapping("/users")
 public class UserResource {
@@ -41,7 +43,7 @@ public class UserResource {
 	}
 
 	@PostMapping()
-	public ResponseEntity<User> createUser(@RequestBody User user) {
+	public ResponseEntity<User> createUser(@Valid @RequestBody User user) {
 		User savedUser = userDao.createUser(user);
 		// creating Location header
 		URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(savedUser.getId())
