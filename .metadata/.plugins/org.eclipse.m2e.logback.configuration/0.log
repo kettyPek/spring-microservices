@@ -1033,3 +1033,8 @@
 2022-10-03 15:11:03,100 [Worker-451: Launching Gen] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource
 2022-10-03 15:11:03,103 [Worker-451: Launching Gen] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\ketty\JavaBC\spring-boot-udemy-course\social-media-demo\src\test\resources
 2022-10-11 15:41:08,908 [Worker-4: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2022-10-16 10:38:17,176 [Worker-2: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2022-10-16 10:47:41,552 [Worker-21: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource
+2022-10-16 10:47:41,583 [Worker-21: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource
+2022-10-16 10:47:41,588 [Worker-21: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\ketty\JavaBC\spring-boot-udemy-course\social-media-demo\src\test\resources
+2022-10-16 10:47:51,414 [Worker-4: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource

@@ -1,5 +1,0 @@
-package com.rest.webservices.socialmediademo.dao;
-
-public class UserDaoService {
-
-}
