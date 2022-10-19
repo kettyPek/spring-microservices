@@ -2,6 +2,9 @@ package com.rest.webservices.socialmediademo.models;
 
 import java.time.LocalDate;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import javax.validation.constraints.Past;
 import javax.validation.constraints.Size;
 
@@ -16,8 +19,11 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@Entity(name = "user_details")
 public class User {
 	
+	@Id
+	@GeneratedValue
 	private int id;
 	
 	@JsonProperty("user_name")
