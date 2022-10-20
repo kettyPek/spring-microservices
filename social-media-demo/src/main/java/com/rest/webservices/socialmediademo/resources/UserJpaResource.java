@@ -19,7 +19,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import com.rest.webservices.socialmediademo.dao.UserDaoService;
 import com.rest.webservices.socialmediademo.exceptions.UserNotFoundException;
 import com.rest.webservices.socialmediademo.jpa.UserRepository;
 import com.rest.webservices.socialmediademo.models.User;
@@ -28,9 +27,6 @@ import com.rest.webservices.socialmediademo.models.User;
 @RequestMapping("/jpa/users")
 public class UserJpaResource {
 
-	@Autowired
-	private UserDaoService userDao;
-	
 	@Autowired
 	private UserRepository userRepository;
 
@@ -51,10 +47,10 @@ public class UserJpaResource {
 		// Creating link to specific method
 		WebMvcLinkBuilder link = WebMvcLinkBuilder
 				.linkTo(WebMvcLinkBuilder.methodOn(this.getClass()).retriveAllUsers());
-		
+
 		// Adding the link to entity model
 		entityModel.add(link.withRel("all-users"));
-		
+
 		return entityModel;
 	}
 
