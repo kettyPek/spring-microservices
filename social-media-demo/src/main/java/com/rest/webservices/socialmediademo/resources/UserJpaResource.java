@@ -21,6 +21,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.rest.webservices.socialmediademo.exceptions.UserNotFoundException;
 import com.rest.webservices.socialmediademo.jpa.UserRepository;
+import com.rest.webservices.socialmediademo.models.Post;
 import com.rest.webservices.socialmediademo.models.User;
 
 @RestController
@@ -67,6 +68,16 @@ public class UserJpaResource {
 	public void deleteUser(@PathVariable int id) {
 		userRepository.deleteById(id);
 
+	}
+	
+	@GetMapping("/{id}/posts")
+	public List<Post> retrivePostsOfUser(@PathVariable int id){
+		Optional<User> user = userRepository.findById(id);
+
+		if (user.isEmpty())
+			throw new UserNotFoundException("id:" + id);
+
+		return user.get().getPosts();
 	}
 
 }
